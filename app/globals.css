@@ -1,0 +1,44 @@
+@import 'tailwindcss';
+@import 'tw-animate-css';
+@custom-variant dark (&:is(.dark *));
+:root {
+  --background: 8 8 16; --foreground: 248 248 255;
+  --card: 12 12 22; --card-foreground: 248 248 255;
+  --primary: 0 229 255; --primary-foreground: 8 8 16;
+  --secondary: 255 215 0; --secondary-foreground: 8 8 16;
+  --muted: 51 51 68; --muted-foreground: 136 136 160;
+  --accent: 0 229 255; --accent-foreground: 8 8 16;
+  --destructive: 239 68 68; --border: 51 51 68;
+  --input: 30 30 45; --ring: 0 229 255; --radius: 0.25rem;
+}
+.dark {
+  --background: 8 8 16; --foreground: 248 248 255;
+  --card: 12 12 22; --card-foreground: 248 248 255;
+  --primary: 0 229 255; --primary-foreground: 8 8 16;
+  --secondary: 255 215 0; --secondary-foreground: 8 8 16;
+  --muted: 51 51 68; --muted-foreground: 136 136 160;
+  --accent: 0 229 255; --accent-foreground: 8 8 16;
+  --destructive: 239 68 68; --border: 51 51 68;
+  --input: 30 30 45; --ring: 0 229 255;
+}
+@theme inline {
+  --font-display: var(--font-display); --font-sans: var(--font-sans); --font-mono: var(--font-mono);
+  --color-background: rgb(var(--background) / <alpha-value>);
+  --color-foreground: rgb(var(--foreground) / <alpha-value>);
+  --color-card: rgb(var(--card) / <alpha-value>);
+  --color-card-foreground: rgb(var(--card-foreground) / <alpha-value>);
+  --color-primary: rgb(var(--primary) / <alpha-value>);
+  --color-primary-foreground: rgb(var(--primary-foreground) / <alpha-value>);
+  --color-secondary: rgb(var(--secondary) / <alpha-value>);
+  --color-secondary-foreground: rgb(var(--secondary-foreground) / <alpha-value>);
+  --color-muted: rgb(var(--muted) / <alpha-value>);
+  --color-muted-foreground: rgb(var(--muted-foreground) / <alpha-value>);
+  --color-accent: rgb(var(--accent) / <alpha-value>);
+  --color-accent-foreground: rgb(var(--accent-foreground) / <alpha-value>);
+  --color-border: rgb(var(--border) / <alpha-value>);
+  --color-input: rgb(var(--input) / <alpha-value>);
+  --color-ring: rgb(var(--ring) / <alpha-value>);
+  --radius: var(--radius);
+}
+* { border-color: rgb(var(--border) / 1); }
+body { background-color: rgb(var(--background) / 1); color: rgb(var(--foreground) / 1); }
