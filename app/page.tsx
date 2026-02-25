@@ -253,7 +253,7 @@ export default function Home() {
           1981–2020.
         </h2>
         <p className="mb-16 max-w-2xl text-lg text-muted-foreground">
-          Guyana to Greenwich. Greenwich to London. London to Toronto. Toronto to everywhere.
+          Guyana to England. England to Canada. Canada to everywhere.
           40 years building software, products, and teams across four continents.
           Click any role for the full story.
         </p>
