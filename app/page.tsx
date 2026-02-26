@@ -58,37 +58,45 @@ const platforms = [
     name: 'LinkedIn',
     handle: 'markusnicholson',
     url: 'https://linkedin.com/in/markusnicholson',
+    archiveUrl: '/linkedin',
     since: '2004',
     status: 'active',
-    note: 'Last 90 days on LinkedIn. Full history repatriated to Chronicle.',
-    archiveNote: 'Full connection history, posts, articles, recommendations from 2004 — repatriating to sovereign Chronicle.',
+    note: '2,477 connections. Last 90 days on LinkedIn. Full profile + articles repatriated.',
+    archiveNote: 'Full position history 1981–2026, 2 published articles, skills, education — all rendered sovereignly from official export.',
+    highlight: '2,477 connections · Export 2026-02-26',
+  },
+  {
+    name: 'Instagram',
+    handle: 'mno127x',
+    url: null,
+    archiveUrl: '/instagram',
+    since: '2013',
+    status: 'active',
+    note: '10,165 advertisers used your data. See the full extraction receipt.',
+    archiveNote: 'Ad targeting categories, advertiser list, follower/following graph — rendered from official Meta export. The extraction is documented.',
+    highlight: '10,165 advertisers had your data',
   },
   {
     name: 'X / Twitter',
     handle: '@marknicholson',
     url: null,
+    archiveUrl: null,
     since: '2009',
     status: 'repatriating',
-    note: '15 years of posts. Currently migrating to Chronicle.',
+    note: '15 years of posts. Export requested. Migrating to Chronicle.',
     archiveNote: '15 years of posts, threads, and conversations — being processed into sovereign archive.',
+    highlight: null,
   },
   {
     name: 'Facebook / Meta',
     handle: 'marknicholson',
     url: null,
+    archiveUrl: null,
     since: '2008',
     status: 'repatriating',
-    note: '18 years of social graph. Extracting and migrating.',
-    archiveNote: 'Photos, posts, connections, events — all being extracted from Meta\'s servers and stored locally.',
-  },
-  {
-    name: 'Instagram',
-    handle: 'marknicholson',
-    url: null,
-    since: '2013',
-    status: 'repatriating',
-    note: '12 years of images. Processing to local archive.',
-    archiveNote: 'Every photo, every story, every caption — owned locally, not by Meta.',
+    note: '18 years. Year-by-year exports from 2004. Migrating.',
+    archiveNote: 'Photos, posts, connections, events — exported and being ingested into local Chronicle.',
+    highlight: null,
   },
 ]
 
@@ -372,21 +380,36 @@ export default function Home() {
                   {p.archiveNote}
                 </p>
               )}
-              <div className="flex items-center justify-between">
-                {p.url ? (
-                  <a
-                    href={p.url}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    onClick={(e) => e.stopPropagation()}
-                    className="font-mono text-xs transition-colors hover:text-foreground"
-                    style={{color:'rgb(0,229,255)'}}
-                  >
-                    View recent posts →
-                  </a>
-                ) : (
-                  <span className="font-mono text-xs text-muted-foreground">Migration in progress</span>
-                )}
+              {p.highlight && (
+                <div className="mb-3 font-mono text-xs font-bold" style={{color:'rgb(255,215,0)'}}>{p.highlight}</div>
+              )}
+              <div className="flex items-center justify-between gap-4 flex-wrap">
+                <div className="flex gap-4">
+                  {p.archiveUrl && (
+                    <a
+                      href={p.archiveUrl}
+                      onClick={(e) => e.stopPropagation()}
+                      className="font-mono text-xs transition-colors hover:text-foreground"
+                      style={{color:'rgb(0,229,255)'}}
+                    >
+                      View sovereign archive →
+                    </a>
+                  )}
+                  {p.url && (
+                    <a
+                      href={p.url}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      onClick={(e) => e.stopPropagation()}
+                      className="font-mono text-xs text-muted-foreground transition-colors hover:text-foreground"
+                    >
+                      Live profile ↗
+                    </a>
+                  )}
+                  {!p.archiveUrl && !p.url && (
+                    <span className="font-mono text-xs text-muted-foreground">Migration in progress</span>
+                  )}
+                </div>
                 <span className="font-mono text-xs text-muted-foreground">
                   {expandedPlatform === p.name ? '↑' : '↓'}
                 </span>
